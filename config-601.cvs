@@ -1,7 +1,7 @@
 key,type,encoding,value
 main,namespace,,
 hostname,data,string,bitaxe
-wifissid,data,string,IoTLWAN
+wifissid,data,string,IoTWLAN
 wifipass,data,string,Tornado1!
 stratumurl,data,string,public-pool.io
 stratumport,data,u16,21496
