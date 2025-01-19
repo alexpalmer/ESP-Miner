@@ -2,6 +2,7 @@
 #define MINING_H_
 
 #include "stratum_api.h"
+#include "esp_random.h"
 
 typedef struct
 {
