@@ -4,6 +4,7 @@
 #include "mining.h"
 #include "utils.h"
 #include "mbedtls/sha256.h"
+#inclue "esp_random.h"
 
 void free_bm_job(bm_job *job)
 {
