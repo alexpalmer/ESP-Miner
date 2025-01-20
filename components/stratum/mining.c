@@ -59,7 +59,7 @@ bm_job construct_bm_job(mining_notify *params, const char *merkle_root, const ui
 
     new_job.version = params->version;
     //new_job.starting_nonce = 1073741824; //was 0
-    new_job.starting_nonce = esp_random();
+    new_job.starting_nonce = -1000;
     new_job.target = params->target;
     new_job.ntime = params->ntime;
     new_job.pool_diff = params->difficulty;
