@@ -330,8 +330,7 @@ void BM1397_set_job_difficulty_mask(int difficulty)
 
     // Default mask of 256 diff
     unsigned char job_difficulty_mask[9] = {0x00, TICKET_MASK, 0b00000000, 0b00000000, 0b00000000, 0b11111111};
-    ESP_LOGI(TAG, "Input Diff %d", difficulty);
-    difficulty = 128;
+    
     // The mask must be a power of 2 so there are no holes
     // Correct:  {0b00000000, 0b00000000, 0b11111111, 0b11111111}
     // Incorrect: {0b00000000, 0b00000000, 0b11100111, 0b11111111}
