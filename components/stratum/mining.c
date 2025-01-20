@@ -63,7 +63,7 @@ bm_job construct_bm_job(mining_notify *params, const char *merkle_root, const ui
     new_job.target = params->target;
     new_job.ntime = params->ntime;
     new_job.pool_diff = params->difficulty;
-    
+    ESP_LOGI(TAG, "Create Jon starting Nonce, 0x%08", new_job.starting_nonce);
 
     hex2bin(merkle_root, new_job.merkle_root, 32);
 
