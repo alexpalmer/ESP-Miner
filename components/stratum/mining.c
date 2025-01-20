@@ -5,6 +5,7 @@
 #include "utils.h"
 #include "mbedtls/sha256.h"
 #include "esp_random.h"
+#include "esp_log.h"
 
 static const char *TAG = "job_nonce";
 
