@@ -6,6 +6,8 @@
 #include "mbedtls/sha256.h"
 #include "esp_random.h"
 
+static const char *TAG = "job_nonce";
+
 void free_bm_job(bm_job *job)
 {
     free(job->jobid);
