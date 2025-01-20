@@ -62,7 +62,7 @@ bm_job construct_bm_job(mining_notify *params, const char *merkle_root, const ui
 
     new_job.version = params->version;
     //new_job.starting_nonce = 1073741824; //was 0
-    new_job.starting_nonce = esp_random();
+    new_job.starting_nonce = 65535;
     new_job.target = params->target;
     new_job.ntime = params->ntime;
     new_job.pool_diff = params->difficulty;
@@ -106,7 +106,7 @@ bm_job construct_bm_job(mining_notify *params, const char *merkle_root, const ui
         memcpy(midstate_data, &rolled_version, 4);
         midstate_sha256_bin(midstate_data, 64, new_job.midstate3);
         reverse_bytes(new_job.midstate3, 32);
-        new_job.num_midstates = 1; //was 4
+        new_job.num_midstates = 4; //was 4
     }
     else
     {
