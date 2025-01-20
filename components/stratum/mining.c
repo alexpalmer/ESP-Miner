@@ -106,7 +106,7 @@ bm_job construct_bm_job(mining_notify *params, const char *merkle_root, const ui
         memcpy(midstate_data, &rolled_version, 4);
         midstate_sha256_bin(midstate_data, 64, new_job.midstate3);
         reverse_bytes(new_job.midstate3, 32);
-        new_job.num_midstates = 4;
+        new_job.num_midstates = 3; //was 4
     }
     else
     {
