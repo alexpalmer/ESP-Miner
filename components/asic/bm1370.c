@@ -58,7 +58,7 @@ typedef struct __attribute__((__packed__))
     uint8_t crc;
 } asic_result;
 
-static const char * TAG = "bm1370Module";
+static const char * TAG = "bm1370Module1";
 
 
 static uint8_t asic_response_buffer[SERIAL_BUF_SIZE];
