@@ -109,6 +109,7 @@ typedef struct
     AsicTaskModule ASIC_TASK_MODULE;
     PowerManagementModule POWER_MANAGEMENT_MODULE;
     SelfTestModule SELF_TEST_MODULE;
+    double version_space_percent;
 
     char * extranonce_str;
     int extranonce_2_len;
