@@ -400,7 +400,7 @@ void BM1370_set_job_difficulty_mask(int difficulty)
     // Incorrect: {0b00000000, 0b00000000, 0b11100111, 0b11111111}
     // (difficulty - 1) if it is a pow 2 then step down to second largest for more hashrate sampling
     //difficulty = _largest_power_of_two(difficulty) - 1;
-    difficulty = _largest_power_of_two(difficulty)-2;
+    difficulty = _largest_power_of_two(difficulty)-1;
 
     // convert difficulty into char array
     // Ex: 256 = {0b00000000, 0b00000000, 0b00000000, 0b11111111}, {0x00, 0x00, 0x00, 0xff}
