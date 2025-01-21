@@ -245,7 +245,7 @@ static uint8_t _send_init(uint64_t frequency, uint16_t asic_count)
 
     // split the chip address space evenly
     for (uint8_t i = 0; i < asic_count; i++) {
-        _set_chip_address(i * (256 / asic_count));
+        _set_chip_address(i * (256 / (asic_count+1)));
     }
 
     unsigned char init[6] = {0x00, CLOCK_ORDER_CONTROL_0, 0x00, 0x00, 0x00, 0x00}; // init1 - clock_order_control0
