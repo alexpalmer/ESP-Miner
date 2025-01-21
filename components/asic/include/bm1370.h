@@ -24,7 +24,7 @@ static const int BM1370_HCN = 7861;
 static const float BM1370_HCN_MAX = 430000.0;
 static const float BM1370_HCN_PERCENT = (float)BM1370_HCN/BM1370_HCN_MAX; //hcn limit effect
 static const float BM1370_VERSION_PERCENT = 1.0;                          //version scan percent
-static const float BM1370_FULLSCAN_PERCENT = 0.80;                         //normalised value 1 means do the maximum space, 0 dont wait before sending work
+static const float BM1370_FULLSCAN_PERCENT = 1.0;                         //normalised value 1 means do the maximum space, 0 dont wait before sending work
 
 typedef struct
 {
