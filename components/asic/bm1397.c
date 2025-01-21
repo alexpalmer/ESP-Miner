@@ -33,7 +33,7 @@
 #define RESPONSE_CMD 0x00
 #define RESPONSE_JOB 0x80
 
-#define SLEEP_TIME 20
+#define SLEEP_TIME 15
 #define FREQ_MULT 25.0
 
 #define CLOCK_ORDER_CONTROL_0 0x80
