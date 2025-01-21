@@ -36,7 +36,7 @@ void create_jobs_task(void *pvParameters)
             ESP_LOGI(TAG, "Set chip version rolls %i", version_rolls);
 
             //calulate update to fullscan_ms as new version rolling
-            double new_version_percent = (double)(version_rolls+1) / (double)(VERSION_ROLLS_MAX*2);
+            double new_version_percent = (double)(version_rolls+1) / (double)(VERSION_ROLLS_MAX*1);
             double prcnt_change = new_version_percent/GLOBAL_STATE->version_space_percent;
             GLOBAL_STATE->asic_job_frequency_ms *= prcnt_change;
             GLOBAL_STATE->version_space_percent = new_version_percent;
