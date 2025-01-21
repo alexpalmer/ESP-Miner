@@ -9,7 +9,7 @@
 #include <sys/time.h>
 
 static const char *TAG = "create_jobs_task";
-
+#define VERSION_ROLLS_MAX 65536  // 2^16 version space
 #define QUEUE_LOW_WATER_MARK 10 // Adjust based on your requirements
 
 static bool should_generate_more_work(GlobalState *GLOBAL_STATE);
@@ -32,6 +32,15 @@ void create_jobs_task(void *pvParameters)
 
         if (GLOBAL_STATE->new_stratum_version_rolling_msg) {
             ESP_LOGI(TAG, "Set chip version rolls %i", (int)(GLOBAL_STATE->version_mask >> 13));
+            int version_rolls = (int)(GLOBAL_STATE->version_mask >> 13);
+            ESP_LOGI(TAG, "Set chip version rolls %i", version_rolls);
+
+            //calulate update to fullscan_ms as new version rolling
+            double new_version_percent = (double)(version_rolls+1) / (double)VERSION_ROLLS_MAX;
+            double prcnt_change = new_version_percent/GLOBAL_STATE->version_space_percent;
+            GLOBAL_STATE->asic_job_frequency_ms *= prcnt_change;
+            GLOBAL_STATE->version_space_percent = new_version_percent;
+            ESP_LOGI(TAG, "Set chip fullscan %f", GLOBAL_STATE->asic_job_frequency_ms);
             (GLOBAL_STATE->ASIC_functions.set_version_mask)(GLOBAL_STATE->version_mask);
             GLOBAL_STATE->new_stratum_version_rolling_msg = false;
         }
