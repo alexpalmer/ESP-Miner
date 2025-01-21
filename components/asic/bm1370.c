@@ -254,7 +254,7 @@ static uint8_t _send_init(uint64_t frequency, uint16_t asic_count)
     // split the chip address space evenly
     uint8_t address_interval = (uint8_t) (256 / chip_counter);
     for (uint8_t i = 0; i < chip_counter; i++) {
-        _set_chip_address((i+1) * address_interval);
+        _set_chip_address((i) * address_interval);
         // unsigned char init8[7] = {0x55, 0xAA, 0x40, 0x05, 0x00, 0x00, 0x1C};
         // _send_simple(init8, 7);
     }
@@ -284,19 +284,19 @@ static uint8_t _send_init(uint64_t frequency, uint16_t asic_count)
 
     for (uint8_t i = 0; i < chip_counter; i++) {
         //TX: 55 AA 41 09 00 [A8 00 07 01 F0] 15    // Reg_A8
-        unsigned char set_a8_register[6] = {(i+1) * address_interval, 0xA8, 0x00, 0x07, 0x01, 0xF0};
+        unsigned char set_a8_register[6] = {(i) * address_interval, 0xA8, 0x00, 0x07, 0x01, 0xF0};
         _send_BM1370((TYPE_CMD | GROUP_SINGLE | CMD_WRITE), set_a8_register, 6, BM1370_SERIALTX_DEBUG);
         //TX: 55 AA 41 09 00 [18 F0 00 C1 00] 0C    // Misc Control
-        unsigned char set_18_register[6] = {(i+1) * address_interval, 0x18, 0xF0, 0x00, 0xC1, 0x00};
+        unsigned char set_18_register[6] = {(i) * address_interval, 0x18, 0xF0, 0x00, 0xC1, 0x00};
         _send_BM1370((TYPE_CMD | GROUP_SINGLE | CMD_WRITE), set_18_register, 6, BM1370_SERIALTX_DEBUG);
         //TX: 55 AA 41 09 00 [3C 80 00 8B 00] 1A    // Core Register Control
-        unsigned char set_3c_register_first[6] = {(i+1) * address_interval, 0x3C, 0x80, 0x00, 0x8B, 0x00};
+        unsigned char set_3c_register_first[6] = {(i) * address_interval, 0x3C, 0x80, 0x00, 0x8B, 0x00};
         _send_BM1370((TYPE_CMD | GROUP_SINGLE | CMD_WRITE), set_3c_register_first, 6, BM1370_SERIALTX_DEBUG);
         //TX: 55 AA 41 09 00 [3C 80 00 80 0C] 19    // Core Register Control
-        unsigned char set_3c_register_second[6] = {(i+1) * address_interval, 0x3C, 0x80, 0x00, 0x80, 0x0C};
+        unsigned char set_3c_register_second[6] = {(i) * address_interval, 0x3C, 0x80, 0x00, 0x80, 0x0C};
         _send_BM1370((TYPE_CMD | GROUP_SINGLE | CMD_WRITE), set_3c_register_second, 6, BM1370_SERIALTX_DEBUG);
         //TX: 55 AA 41 09 00 [3C 80 00 82 AA] 05    // Core Register Control
-        unsigned char set_3c_register_third[6] = {(i+1) * address_interval, 0x3C, 0x80, 0x00, 0x82, 0xAA};
+        unsigned char set_3c_register_third[6] = {(i) * address_interval, 0x3C, 0x80, 0x00, 0x82, 0xAA};
         _send_BM1370((TYPE_CMD | GROUP_SINGLE | CMD_WRITE), set_3c_register_third, 6, BM1370_SERIALTX_DEBUG);
     }
 
