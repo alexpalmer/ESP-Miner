@@ -33,7 +33,7 @@
 #define RESPONSE_CMD 0x00
 #define RESPONSE_JOB 0x80
 
-#define SLEEP_TIME 20
+#define SLEEP_TIME 15
 #define FREQ_MULT 25.0
 
 #define CLOCK_ORDER_CONTROL_0 0x80
@@ -58,7 +58,7 @@ typedef struct __attribute__((__packed__))
     uint8_t crc;
 } asic_result;
 
-static const char * TAG = "bm1370Module1";
+static const char * TAG = "bm1370Module";
 
 
 static uint8_t asic_response_buffer[SERIAL_BUF_SIZE];
@@ -427,7 +427,7 @@ void BM1370_send_work(void * pvParameters, bm_job * next_bm_job)
     memcpy(&job.starting_nonce, &next_bm_job->starting_nonce, 4);
     memcpy(&job.nbits, &next_bm_job->target, 4);
     memcpy(&job.ntime, &next_bm_job->ntime, 4);
-    memcpy(job.merkle_root, next_bm_job->merkle_root_be, 32);
+    memcpy(job.merkle_root, next_bm_job->merkle_root_be+28, 32);
     memcpy(job.prev_block_hash, next_bm_job->prev_block_hash_be, 32);
     memcpy(&job.version, &next_bm_job->version, 4);
 
