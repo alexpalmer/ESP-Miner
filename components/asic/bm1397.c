@@ -369,7 +369,7 @@ void BM1397_send_work(void *pvParameters, bm_job *next_bm_job)
 
     job.job_id = id;
     job.num_midstates = next_bm_job->num_midstates;
-    memcpy(&job.starting_nonce, &next_bm_job->starting_nonce, 4);
+    memcpy(&job.starting_nonce, &next_bm_job->starting_nonce+1, 4);
     memcpy(&job.nbits, &next_bm_job->target, 4);
     memcpy(&job.ntime, &next_bm_job->ntime, 4);
     //memcpy(&job.merkle4, next_bm_job->merkle_root + 28, 4);
