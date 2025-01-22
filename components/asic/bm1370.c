@@ -194,7 +194,7 @@ void BM1370_send_hash_frequency(int id, float target_freq, float max_diff) {
 
 static void do_frequency_ramp_up(float target_frequency) {
     float current = 56.25;
-    float step = 6.5;
+    float step = 6.25;
 
     if (target_frequency == 0) {
         ESP_LOGI(TAG, "Skipping frequency ramp");
