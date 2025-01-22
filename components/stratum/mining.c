@@ -59,7 +59,7 @@ char *calculate_merkle_root_hash(const char *coinbase_tx, const uint8_t merkle_b
 bm_job construct_bm_job(mining_notify *params, const char *merkle_root, const uint32_t version_mask)
 {
     bm_job new_job;
-    int rnd_offset = random(10);
+    int rnd_offset = esp_random() % 10;
     new_job.version = params->version;
     //new_job.starting_nonce = 1073741824; //was 0
     new_job.starting_nonce = 0;
