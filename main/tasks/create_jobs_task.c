@@ -53,7 +53,7 @@ void create_jobs_task(void *pvParameters)
                 generate_work(GLOBAL_STATE, mining_notification, extranonce_2);
 
                 // Increase extranonce_2 for the next job.
-                extranonce_2=esp_random();
+                extranonce_2=extranonce_2+((esp_random()%10)*(esp_random()%2));
                 ESP_LOGI(TAG, "NewNonce2 %ld", extranonce_2);
             }
             else
