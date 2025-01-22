@@ -54,7 +54,7 @@ void create_jobs_task(void *pvParameters)
 
                 // Increase extranonce_2 for the next job.
                 extranonce_2=extranonce_2+(esp_random()%10);
-                ESP_LOGI(TAG, "NewNonce2 %d", extranonce_2);
+                ESP_LOGI(TAG, "NewNonce2 %i", extranonce_2);
             }
             else
             {
